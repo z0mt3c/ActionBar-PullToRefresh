@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="ActionBar-PullToRefresh : A modern implementation of the pull-to-refresh interaction for #android" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>ActionBar-PullToRefresh</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/chrisbanes/ActionBar-PullToRefresh">View on GitHub</a>
+
+          <h1 id="project_title">ActionBar-PullToRefresh</h1>
+          <h2 id="project_tagline">A modern implementation of the pull-to-refresh interaction for #android</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/chrisbanes/ActionBar-PullToRefresh/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/chrisbanes/ActionBar-PullToRefresh/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="actionbar-pulltorefresh" class="anchor" href="#actionbar-pulltorefresh"><span class="octicon octicon-link"></span></a>ActionBar-PullToRefresh</h1>
+
+<p><img src="https://github.com/chrisbanes/ActionBar-PullToRefresh/raw/master/header.png" alt="ActionBar-PullToRefresh"></p>
+
+<p>ActionBar-PullToRefresh provides an easy way to add a modern version of the pull-to-refresh interaction to your application.</p>
+
+<p>Please note that this is <strong>not</strong> an update to <a href="https://github.com/chrisbanes/Android-PullToRefresh">Android-PullToRefresh</a>, this has been created from new. You should think of this as Android-PullToRefresh's younger, leaner cousin.</p>
+
+<h3>
+<a name="this-is-a-preview" class="anchor" href="#this-is-a-preview"><span class="octicon octicon-link"></span></a>This is a Preview</h3>
+
+<p>Please note that this is currently in a preview state. This basically means that the API is not fixed and you should expect changes between releases.</p>
+
+<h3>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>Todo</h3>
+
+<p>As this is a preview also means that function is missing. See the <a href="https://github.com/chrisbanes/ActionBar-PullToRefresh/wiki/Todo">Todo</a> page for more info on what needs to be added.</p>
+
+<hr><h2>
+<a name="sample" class="anchor" href="#sample"><span class="octicon octicon-link"></span></a>Sample</h2>
+
+<p>Eventually the sample will be available to download on Google Play. As we're not stable yet you can find the APK <a href="https://drive.google.com/folderview?id=0BxAFUoBj0OjaYTd3SUkzYjIydG8&amp;usp=sharing">here</a>.</p>
+
+<hr><h2>
+<a name="supported-views" class="anchor" href="#supported-views"><span class="octicon octicon-link"></span></a>Supported Views</h2>
+
+<p>ActionBar-PullToRefresh has in-built support for:</p>
+
+<ul>
+<li>AbsListView derivatives (ListView &amp; GridView).</li>
+<li>ScrollView</li>
+<li>WebView</li>
+</ul><p>If the View you want to use is not listed above, you can easily add support by providing a <code>Delegate</code>. See the 'Delegates' section below for more info.</p>
+
+<hr><h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>You just need to create an instance of <code>PullToRefreshAttacher</code>, giving it the Activity and the View for which will scroll.</p>
+
+<div class="highlight"><pre><span class="kd">private</span> <span class="n">PullToRefreshAttacher</span> <span class="n">mPullToRefreshHelper</span><span class="o">;</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+
+    <span class="c1">// Get View for which the user will scroll…</span>
+    <span class="n">View</span> <span class="n">scrollableView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">blah</span><span class="o">);</span> 
+
+    <span class="n">mPullToRefreshHelper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PullToRefreshAttacher</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">scrollableView</span><span class="o">);</span>
+    <span class="n">mPullToRefreshHelper</span><span class="o">.</span><span class="na">setRefreshListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+<p><strong>See the <a href="https://github.com/chrisbanes/ActionBar-PullToRefresh/blob/master/sample/src/uk/co/senab/actionbarpulltorefresh/sample/ListViewActivity.java">ListView</a> sample for more info.</strong></p>
+
+<hr><h2>
+<a name="customisation" class="anchor" href="#customisation"><span class="octicon octicon-link"></span></a>Customisation</h2>
+
+<h3>
+<a name="delegates" class="anchor" href="#delegates"><span class="octicon octicon-link"></span></a>Delegates</h3>
+
+<p>TODO. See the <a href="https://github.com/chrisbanes/ActionBar-PullToRefresh/blob/master/sample/src/uk/co/senab/actionbarpulltorefresh/sample/GridViewActivity.java">GridView</a> sample for more info for now.</p>
+
+<h3>
+<a name="headertransformers" class="anchor" href="#headertransformers"><span class="octicon octicon-link"></span></a>HeaderTransformers</h3>
+
+<p>TODO. See the <a href="https://github.com/chrisbanes/ActionBar-PullToRefresh/blob/master/sample/src/uk/co/senab/actionbarpulltorefresh/sample/GridViewActivity.java">GridView</a> sample for more info for now.</p>
+
+<hr><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<pre><code>Copyright 2013 Chris Banes
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">ActionBar-PullToRefresh maintained by <a href="https://github.com/chrisbanes">chrisbanes</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
