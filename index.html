@@ -46,12 +46,22 @@
 <p>Please note that this is currently in a preview state. This basically means that the API is not fixed and you should expect changes between releases.</p>
 
 <hr><h2>
-<a name="sample" class="anchor" href="#sample"><span class="octicon octicon-link"></span></a>Sample</h2>
+<a name="sample-apps" class="anchor" href="#sample-apps"><span class="octicon octicon-link"></span></a>Sample Apps</h2>
 
-<p>Eventually the sample will be available to download on Google Play. As we're not stable yet you can find the APKs <a href="https://drive.google.com/folderview?id=0BxAFUoBj0OjaYTd3SUkzYjIydG8&amp;usp=sharing">here</a>.</p>
+<p>There are two sample applications, the stock sample which uses the standard library and is therefore has a <code>minSdkVersion</code> of 14. There is also a sample which uses the ActionBarSherlock extra so has a <code>minSdkVersion</code> of 7.</p>
 
-<h4>
-<a name="video" class="anchor" href="#video"><span class="octicon octicon-link"></span></a>Video</h4>
+<h3>
+<a name="stock-sample" class="anchor" href="#stock-sample"><span class="octicon octicon-link"></span></a>Stock Sample</h3>
+
+<p><a href="http://play.google.com/store/apps/details?id=uk.co.senab.actionbarpulltorefresh.samples.stock"><img src="http://www.android.com/images/brand/get_it_on_play_logo_small.png" alt="Get it on Google Play"></a></p>
+
+<h3>
+<a name="actionbarsherlock-sample" class="anchor" href="#actionbarsherlock-sample"><span class="octicon octicon-link"></span></a>ActionBarSherlock Sample</h3>
+
+<p><a href="http://play.google.com/store/apps/details?id=uk.co.senab.actionbarpulltorefresh.samples.actionbarsherlock"><img src="http://www.android.com/images/brand/get_it_on_play_logo_small.png" alt="Get it on Google Play"></a></p>
+
+<h2>
+<a name="video" class="anchor" href="#video"><span class="octicon octicon-link"></span></a>Video</h2>
 
 <p><a href="https://www.youtube.com/watch?v=YOYtPF-4RPg"><img src="http://img.youtube.com/vi/YOYtPF-4RPg/0.jpg" alt="Sample Video"></a></p>
 
@@ -140,6 +150,8 @@
 <code>headerOutAnimation</code>: The animation resource which is used when the header view is hidden.</li>
 <li>
 <code>refreshScrollDistance</code>: The vertical distance (percentage of the scrollable view height) that the user needs to scroll for a refresh to start.</li>
+<li>
+<code>refreshOnUp</code>: Whether to wait to start the refresh until when the user has lifted their finger.</li>
 </ul><h3>
 <a name="headertransformers" class="anchor" href="#headertransformers"><span class="octicon octicon-link"></span></a>HeaderTransformers</h3>
 
@@ -149,6 +161,27 @@
 <a name="customised-header-view-layout" class="anchor" href="#customised-header-view-layout"><span class="octicon octicon-link"></span></a>Customised Header View layout</h3>
 
 <p>If you feel that the default header view layout does not provide what you require, you can provide your own which is inflated for you. For the majority of cases, you will probably want to provide your own <code>HeaderTransformer</code> as well, to update your custom layout.</p>
+
+<h2>
+<a name="maven" class="anchor" href="#maven"><span class="octicon octicon-link"></span></a>Maven</h2>
+
+<p>For the standard library (APIv14+) add the following as a dependency in you <code>pom.xml</code>:</p>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.github.chrisbanes.actionbarpulltorefresh&lt;/groupId&gt;
+    &lt;artifactId&gt;library&lt;/artifactId&gt;
+    &lt;version&gt;0.5&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>If you're using ActionBarSherlock (APIv7+) add the following as a dependency in you <code>pom.xml</code>:</p>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.github.chrisbanes.actionbarpulltorefresh&lt;/groupId&gt;
+    &lt;artifactId&gt;extra-abs&lt;/artifactId&gt;
+    &lt;version&gt;0.5&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
 
 <hr><h2>
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
