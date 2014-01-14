@@ -1,18 +1,8 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.7.+'
-    }
-}
-
 apply plugin: 'android-library'
 
 android {
-    compileSdkVersion 18
-    buildToolsVersion = '19.0.1'
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
 
     sourceSets {
         main {
